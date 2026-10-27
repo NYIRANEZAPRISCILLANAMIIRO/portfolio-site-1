@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Namiiro Milly Priscilla | Software Engineering Student</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F8FC; --surface:#FFFFFF; --ink:#0B2545; --muted:#52627A; --line:#D9E2EF;
+  --primary:#1D4ED8; --primary-ink:#FFFFFF; --accent:#0E9F9A; --tint:#E8F0FE;
+  --hero1:#0B2545; --hero2:#1D4ED8; --hero3:#0E9F9A;
+  color-scheme:light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A1322; --surface:#111C31; --ink:#E8EEF8; --muted:#9AA9C2; --line:#223250;
+    --primary:#60A5FA; --primary-ink:#0A1322; --accent:#2DD4BF; --tint:#16264A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A1322; --surface:#111C31; --ink:#E8EEF8; --muted:#9AA9C2; --line:#223250;
+  --primary:#60A5FA; --primary-ink:#0A1322; --accent:#2DD4BF; --tint:#16264A; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;line-height:1.6;font-size:17px}
+h1,h2,h3{font-family:"Space Grotesk","DM Sans",sans-serif;line-height:1.15;margin:0;letter-spacing:-.01em}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+section{padding:84px 0}
+.sec-head{max-width:560px;margin-bottom:40px}
+.sec-head h2{font-size:clamp(28px,4vw,38px);margin-bottom:10px}
+.sec-head p{color:var(--muted)}
+
+/* Navigation */
+header.nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo{min-width:0}.avatar{width:40px;height:40px;border-radius:50%;flex:none;object-fit:cover;border:2px solid var(--primary);background:var(--tint)}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;color:var(--muted);font-weight:500;font-size:15px}
+.nav ul a:hover{color:var(--primary)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;font-family:inherit}
+.btn-solid{background:var(--primary);color:var(--primary-ink)}
+.btn-solid:hover{filter:brightness(1.08)}
+.btn-line{border-color:rgba(255,255,255,.45);color:#fff}
+.btn-line:hover{background:rgba(255,255,255,.12)}
+.btn-white{background:#fff;color:#0B2545}
+.btn-sm{padding:9px 18px}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--hero1) 0%,var(--hero2) 62%,var(--hero3) 130%);color:#fff;padding:92px 0 100px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(90deg,transparent,#000 70%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid rgba(255,255,255,.35);border-radius:99px;font-size:14px;margin-bottom:24px}
+.status i{width:8px;height:8px;border-radius:50%;background:#4ADE80;box-shadow:0 0 0 4px rgba(74,222,128,.25)}
+.hero h1{font-size:clamp(34px,5vw,56px);font-weight:700;margin-bottom:20px}
+.hero .lead{font-size:19px;color:#D6E4FA;max-width:30em;margin-bottom:32px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px}
+.roles{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+.roles li{font-size:14px;padding:6px 14px;border-radius:99px;background:rgba(255,255,255,.12)}
+
+/* Hero visual: Library Management System screens */
+.shot{position:relative;margin:0}
+.frame{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(2,12,40,.55)}
+.frame .chrome{height:26px;background:#E6EDF8;display:flex;gap:6px;align-items:center;padding:0 12px}
+.frame .chrome i{width:9px;height:9px;border-radius:50%;background:#B7C5DC}
+.frame img{display:block;width:100%;height:auto}
+.shot .second{position:absolute;right:-10px;bottom:-34px;width:48%}
+.shot figcaption{margin-top:14px;font-size:14px;color:#CFE0FA}
+/* About */
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.portrait{width:100%;max-width:340px;height:auto;aspect-ratio:1/1;border-radius:50%;object-fit:cover;border:4px solid var(--primary);background:var(--tint);box-shadow:0 20px 40px -24px rgba(11,37,69,.5)}
+
+.about-text p{color:var(--muted);margin-bottom:16px;max-width:62ch}
+.about-text p:first-of-type{color:var(--ink);font-size:20px}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.fact b{display:block;font-family:"Space Grotesk",sans-serif;font-size:16px}
+.fact span{font-size:14px;color:var(--muted)}
+
+/* Skills */
+.skills{background:var(--surface);border-block:1px solid var(--line)}
+.skill-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.skill-box{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:26px}
+.skill-box .ico{width:44px;height:44px;border-radius:12px;background:var(--tint);color:var(--primary);display:grid;place-items:center;margin-bottom:16px}
+.skill-box h3{font-size:20px;margin-bottom:12px}
+.skill-box ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;color:var(--muted);font-size:16px}
+.skill-box li::before{content:"";display:inline-block;width:7px;height:7px;border-radius:2px;background:var(--accent);margin-right:10px}
+.tools{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tools span.t{font-weight:700;margin-right:6px}
+.chip{padding:7px 14px;border-radius:99px;background:var(--tint);color:var(--primary);font-size:14px;font-weight:500}
+
+/* Projects */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.thumb{height:160px;padding:18px;background:linear-gradient(135deg,#0B2545,#1D4ED8);display:flex;align-items:flex-end}
+.thumb.t2{background:linear-gradient(135deg,#134E4A,#0E9F9A)}.shotthumb{padding:0;overflow:hidden}.shotthumb img{width:100%;height:100%;object-fit:cover;object-position:left top;display:block}
+.thumb.t3{background:linear-gradient(135deg,#1E3A8A,#4F7BF0)}
+.mini{width:100%;background:rgba(255,255,255,.95);border-radius:10px;padding:12px;display:grid;gap:7px}
+.mini i{display:block;height:8px;border-radius:5px;background:#D5E0F2}
+.mini i:nth-child(1){width:55%;background:#1D4ED8}
+.mini i:nth-child(2){width:90%}
+.mini i:nth-child(3){width:72%}
+.card .body{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{font-size:21px}
+.card p{color:var(--muted);font-size:16px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:8px}
+.tag{font-size:13px;padding:4px 11px;border-radius:99px;background:var(--tint);color:var(--primary);font-weight:500}
+.badge{font-size:13px;font-weight:700;color:var(--accent)}
+
+/* Contact */
+.contact{background:linear-gradient(135deg,var(--hero1),var(--hero2) 70%,var(--hero3) 140%);color:#fff;text-align:left}
+.contact h2{font-size:clamp(32px,5vw,50px);margin-bottom:12px}
+.contact p.lead{color:#D6E4FA;max-width:34em;margin-bottom:34px}
+.links{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.link{display:flex;gap:14px;align-items:center;padding:18px 20px;border:1px solid rgba(255,255,255,.28);border-radius:14px;text-decoration:none;background:rgba(255,255,255,.08);overflow-wrap:anywhere}
+.link:hover{background:rgba(255,255,255,.16)}
+.link small{display:block;color:#BFD3F4;font-size:13px}
+.link svg{flex:none}
+footer{padding:26px 0 30px;background:#07182F;color:#9FB2D3;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+footer a{text-decoration:none}
+
+@media (max-width:860px){
+  .hero .wrap,.about-grid{grid-template-columns:1fr}
+  .skill-cols,.cards,.links{grid-template-columns:1fr}
+  .nav ul{display:none}
+  .portrait{max-width:260px;margin:0 auto}
+  section{padding:64px 0}
+  .hero{padding:64px 0 72px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero .wrap>div:first-child{animation:rise .8s ease both}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Home"><img class="avatar" src="images/face.png" alt="Photo of Namiiro Milly Priscilla" width="40" height="40">Namiiro Milly Priscilla</a>
+    <nav aria-label="Main"><ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <a class="btn btn-solid btn-sm" href="#contact">Let’s talk</a>
+  </div>
+</header>
+
+<main id="top">
+<!-- Hero -->
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <p class="status"><i></i>Open to internship placement</p>
+      <h1>Hi, I’m Namiiro Milly Priscilla. I design systems people can rely on.</h1>
+      <p class="lead">Software Engineering student at UICT. I turn real-world problems into clear system models, simple interfaces and working websites.</p>
+      <div class="actions">
+        <a class="btn btn-white" href="#projects">View my projects</a>
+        <a class="btn btn-line" href="#contact">Get in touch</a>
+      </div>
+      <ul class="roles"><li>System design</li><li>Web development</li><li>UI/UX design</li></ul>
+    </div>
+    <figure class="shot">
+      <div class="frame"><div class="chrome"><i></i><i></i><i></i></div><img src="images/library-dashboard.jpg" alt="Dashboard of my Library Management System showing books, members and borrowing activity"></div>
+      <figcaption>My Library Management System (in progress)</figcaption>
+    </figure>
+    </div>
+  </div>
+</div>
+
+<!-- About -->
+<section id="about">
+  <div class="wrap about-grid">
+    <img class="portrait" src="images/face.png" alt="Photo of Namiiro Milly Priscilla">
+    <div class="about-text">
+      <div class="sec-head" style="margin-bottom:18px"><h2>About me</h2></div>
+      <p>I’m a Diploma in Software Engineering student who enjoys understanding how a system should work before writing a single line of code.</p>
+      <p>I’m strongest in system design, web development and UI/UX design. I start with requirements, model the system with UML, DFD and ERD diagrams, then build clean, accessible interfaces that people find easy to use.</p>
+      <p>I’m looking for an internship where I can contribute to real projects, learn from experienced professionals and grow across the whole software development life cycle.</p>
+      <div class="facts">
+        <div class="fact"><b>Diploma in Software Engineering</b><span>Uganda Institute of Information and Communications Technology</span></div>
+        <div class="fact"><b>Based in Uganda</b><span>Available for an internship placement</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="skills">
+  <div class="wrap">
+    <div class="sec-head"><h2>What I do best</h2><p>Three areas I work in every day, from the first requirement to the final screen.</p></div>
+    <div class="skill-cols">
+      <div class="skill-box">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><path d="M10 6.5h4a3 3 0 0 1 3 3V14"/></svg></div>
+        <h3>System design</h3>
+        <ul><li>Requirements analysis</li><li>System modelling (UML, DFD, ERD)</li><li>Use cases and user stories</li><li>Software development life cycle</li></ul>
+      </div>
+      <div class="skill-box">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M8 14h4"/></svg></div>
+        <h3>UI/UX design</h3>
+        <ul><li>User-centred design</li><li>Wireframing and prototyping</li><li>Usability thinking</li><li>Accessible layouts</li></ul>
+      </div>
+      <div class="skill-box">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></div>
+        <h3>Web development</h3>
+        <ul><li>HTML and CSS</li><li>JavaScript</li><li>Database design basics (ERD)</li><li>Team collaboration</li></ul>
+      </div>
+    </div>
+    <div class="tools">
+      <span class="t">Tools</span>
+      <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Figma</span><span class="chip">UML diagrams</span><span class="chip">Flutter and Dart (learning)</span><span class="chip">Excel and Google Sheets</span>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><h2>Featured projects</h2><p>Each one starts with a real problem and ends with a system people can use.</p></div>
+    <div class="cards">
+      <article class="card">
+        <div class="thumb"><div class="mini"><i></i><i></i><i></i></div></div>
+        <div class="body">
+          <span class="badge">Final year project · In progress</span>
+          <h3>Queue Management System</h3>
+          <p>Organises service queues and reduces waiting time, with ticketing, service counters and real-time queue status for clients and staff.</p>
+          <div class="tags"><span class="tag">System design</span><span class="tag">UI/UX</span><span class="tag">Web</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb t2 shotthumb"><img src="images/library-dashboard.jpg" alt="Library Management System dashboard"></div>
+        <div class="body">
+          <span class="badge">Team project · In progress</span>
+          <h3>Library Management System</h3>
+          <p>Manages book records, members, borrowing and returns, so librarians can track availability and overdue items.</p>
+          <div class="tags"><span class="tag">ERD</span><span class="tag">UI/UX</span><span class="tag">Web</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb t3"><div class="mini"><i></i><i></i><i></i></div></div>
+        <div class="body">
+          <span class="badge">Team project · In progress</span>
+          <h3>Attendance System</h3>
+          <p>Records attendance digitally in place of paper registers and gives quick summaries of who was present.</p>
+          <div class="tags"><span class="tag">Use cases</span><span class="tag">UI/UX</span><span class="tag">Web</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let’s work together.</h2>
+    <p class="lead">I’m available for an internship placement and happy to share more about my work.</p>
+    <div class="links">
+      <a class="link" href="mailto:priscillanamiiro25@gmail.com">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span><small>Email</small>priscillanamiiro25@gmail.com</span>
+      </a>
+      <a class="link" href="tel:+256705531736">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+        <span><small>Phone</small>0705 531 736<br>0791 682 660</span>
+      </a>
+   <a class="link" href="https://www.linkedin.com/in/priscilla-namiiro-2323b6447" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+  <svg width="24" height="24" ...>...</svg>
+  <span><small>LinkedIn</small>View my profile</span>
+</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Namiiro Milly Priscilla</span>
+    <span><a href="#about">About</a> · <a href="#skills">Skills</a> · <a href="#projects">Projects</a> · <a href="#contact">Contact</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
